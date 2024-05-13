@@ -30,4 +30,10 @@ export class UserController {
         session.connected = true
         return session
     }
+
+    @Post("/logout")
+    @Redirect("login")
+    postLogout(@Session() session : Record<string, any>) {
+        session.destroy( err => {});
+    }
 }

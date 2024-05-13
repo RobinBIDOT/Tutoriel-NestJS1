@@ -32,6 +32,9 @@ let UserController = class UserController {
         session.connected = true;
         return session;
     }
+    postLogout(session) {
+        session.destroy(err => { });
+    }
 };
 exports.UserController = UserController;
 __decorate([
@@ -66,6 +69,14 @@ __decorate([
     __metadata("design:paramtypes", [loginDto_1.LoginDto, Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "postLogin", null);
+__decorate([
+    (0, common_1.Post)("/logout"),
+    (0, common_1.Redirect)("login"),
+    __param(0, (0, common_1.Session)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UserController.prototype, "postLogout", null);
 exports.UserController = UserController = __decorate([
     (0, common_1.Controller)('user'),
     __metadata("design:paramtypes", [user_service_1.UserService])

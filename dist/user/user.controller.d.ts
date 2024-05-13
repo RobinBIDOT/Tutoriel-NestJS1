@@ -10,4 +10,5 @@ export declare class UserController {
         message: String;
     }>;
     postLogin(body: LoginDto, session: Record<string, any>): Promise<Record<string, any>>;
+    postLogout(session: Record<string, any>): void;
 }
