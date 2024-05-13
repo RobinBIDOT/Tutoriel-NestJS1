@@ -1,11 +1,26 @@
 body {
     font-family: sans-serif;
+    background-image: url('6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
 
 .navigation {
     display: flex;
-    background-color: gray;
+    background: rgba(128, 128, 128, 0.5);
+    backdrop-filter: blur(8px);
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navigation.form, .navigation.button {
+    background: none;
+    backdrop-filter: none;
+    border-radius: 0;
+    box-shadow: none;
 }
