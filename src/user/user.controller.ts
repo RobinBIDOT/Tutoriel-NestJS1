@@ -6,7 +6,6 @@ export class UserController {
     @Render("user/signup")
     getSignup(){}
     @Get("/login")
-    getLogin(){
-        return "Page de connexion"
-    }
+    @Render("user/login")
+    getLogin(){}
 }

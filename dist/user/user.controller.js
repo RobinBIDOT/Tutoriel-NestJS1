@@ -13,9 +13,7 @@ exports.UserController = void 0;
 const common_1 = require("@nestjs/common");
 let UserController = class UserController {
     getSignup() { }
-    getLogin() {
-        return "Page de connexion";
-    }
+    getLogin() { }
 };
 exports.UserController = UserController;
 __decorate([
@@ -27,6 +25,7 @@ __decorate([
 ], UserController.prototype, "getSignup", null);
 __decorate([
     (0, common_1.Get)("/login"),
+    (0, common_1.Render)("user/login"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
