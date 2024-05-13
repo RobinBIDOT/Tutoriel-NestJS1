@@ -8,6 +8,6 @@ export class AddPostDto{
 
     @IsString()
     @IsNotEmpty()
-    @Length(8,255)
+    @Length(8,5000)
     readonly content : string
 }

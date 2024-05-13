@@ -18,14 +18,18 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const post_entity_1 = require("./post.entity");
 let PostService = class PostService {
-    constructor(userRepository) {
-        this.userRepository = userRepository;
+    constructor(postRepository) {
+        this.postRepository = postRepository;
     }
     async postAddPost(body, user) {
-        const post = this.userRepository.create(body);
+        const post = this.postRepository.create(body);
         post.user = user;
-        await this.userRepository.save(post);
+        await this.postRepository.save(post);
         return "Created Article";
+    }
+    async getAllPosts() {
+        const posts = await this.postRepository.find({ order: { created_at: "DESC" } });
+        return posts;
     }
 };
 exports.PostService = PostService;

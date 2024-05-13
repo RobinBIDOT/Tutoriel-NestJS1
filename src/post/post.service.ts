@@ -7,11 +7,16 @@ import {User} from "../user/user.entity";
 
 @Injectable()
 export class PostService {
-    constructor(@InjectRepository(Post) private readonly userRepository : Repository<Post>) {}
+    constructor(@InjectRepository(Post) private readonly postRepository : Repository<Post>) {}
     async postAddPost(body: AddPostDto, user : User) {
-        const post = this.userRepository.create(body)
+        const post = this.postRepository.create(body)
         post.user = user
-        await this.userRepository.save(post)
+        await this.postRepository.save(post)
         return "Created Article"
+    }
+
+    async getAllPosts() {
+        const posts = await this.postRepository.find({order : {created_at : "DESC"}})
+        return posts
     }
 }

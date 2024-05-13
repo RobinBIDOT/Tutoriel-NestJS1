@@ -1,6 +1,8 @@
-import { AppService } from './app.service';
+import { PostService } from "./post/post.service";
 export declare class AppController {
-    private readonly appService;
-    constructor(appService: AppService);
-    getHome(): void;
+    private readonly postService;
+    constructor(postService: PostService);
+    getHome(): Promise<{
+        posts: import("./post/post.entity").Post[];
+    }>;
 }

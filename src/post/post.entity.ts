@@ -9,7 +9,7 @@ export class Post {
     @Column()
     readonly title: string;
 
-    @Column()
+    @Column({type : "text"})
     readonly content: string;
 
     @CreateDateColumn()
