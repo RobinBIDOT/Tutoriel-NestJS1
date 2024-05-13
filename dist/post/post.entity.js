@@ -9,35 +9,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
+exports.Post = void 0;
 const typeorm_1 = require("typeorm");
-const class_transformer_1 = require("class-transformer");
-const post_entity_1 = require("../post/post.entity");
-let User = class User {
+const user_entity_1 = require("../user/user.entity");
+let Post = class Post {
 };
-exports.User = User;
+exports.Post = Post;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], User.prototype, "id", void 0);
+], Post.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], User.prototype, "username", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ unique: true }),
-    __metadata("design:type", String)
-], User.prototype, "email", void 0);
+], Post.prototype, "title", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
-    (0, class_transformer_1.Exclude)(),
     __metadata("design:type", String)
-], User.prototype, "password", void 0);
+], Post.prototype, "content", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => post_entity_1.Post, (post) => post.user),
-    __metadata("design:type", Array)
-], User.prototype, "posts", void 0);
-exports.User = User = __decorate([
+    (0, typeorm_1.CreateDateColumn)(),
+    __metadata("design:type", Date)
+], Post.prototype, "created_at", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)(),
+    __metadata("design:type", Date)
+], Post.prototype, "updated_at", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, (user) => user.posts),
+    __metadata("design:type", user_entity_1.User)
+], Post.prototype, "user", void 0);
+exports.Post = Post = __decorate([
     (0, typeorm_1.Entity)()
-], User);
-//# sourceMappingURL=user.entity.js.map
+], Post);
+//# sourceMappingURL=post.entity.js.map

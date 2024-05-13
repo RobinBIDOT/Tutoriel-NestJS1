@@ -1,4 +1,4 @@
-import {Request, Response, NextFunction} from "express"
+import { Response, NextFunction} from "express"
 
 export function localData (req: any, res: Response ,next: NextFunction) {
     console.log(req.session)
