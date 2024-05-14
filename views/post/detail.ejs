@@ -1,7 +1,8 @@
-<%- include("../partials/header", {title: "Détail de l'article", style : "home"}) %>
+<%- include("../partials/header", {title: "Détail de l'article", style: "home"}) %>
 <div class="container d-flex justify-content-center align-items-center vh-100">
     <% if (locals.post) { %>
-        <div class="post w-80 p-3 border">
+        <div class="post w-80 p-3 border glassmorphism-card">
+            <img src="<%= post.img %>" class="img-fluid detail-img mb-3" alt="<%= post.title %>">
             <h3 class="text-center"><%= post.title %> - Auteur : <%= post.user.username %></h3>
             <p><%= post.content %> </p>
         </div>

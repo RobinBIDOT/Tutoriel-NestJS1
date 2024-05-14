@@ -9,6 +9,9 @@ export class Post {
     @Column()
     readonly title: string;
 
+    @Column()
+    readonly img: string;
+
     @Column({type : "text"})
     readonly content: string;
 
