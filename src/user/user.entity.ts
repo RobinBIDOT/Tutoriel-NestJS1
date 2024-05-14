@@ -15,7 +15,7 @@ export class User {
 
     @Column({select : false})
     @Exclude()
-    readonly password: string;
+    password: string;
 
     @OneToMany(() => Post, (post) => post.user)
     posts : Post[]

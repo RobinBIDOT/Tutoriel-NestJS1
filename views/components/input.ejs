@@ -1,4 +1,6 @@
 <div class="form-group">
-    <label for="<%= name %>"><%= name %></label>
-    <input type="<%= type %>" name="<%= name %>">
+    <% if (typeof label !== 'undefined') { %>
+        <label for="<%= name %>"><%= label %></label>
+    <% } %>
+    <input type="<%= type %>" name="<%= name %>" id="<%= name %>" class="form-control">
 </div>

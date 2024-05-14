@@ -1,9 +1,12 @@
 <%- include("../partials/header", {title: "Ajouter un article", style : "addPost"}) %>
 <h1>Ajouter un article</h1>
-<form class="form" action="" method="post">
-    <%- include("../components/input", {type: "text", name: "title"}) %>
-    <label>Content</label>
-    <textarea name="content"></textarea>
-    <button type="submit">Ajouter</button>
+<form class="form" action="/post/add" method="post">
+    <%- include("../components/input", {type: "text", name: "title", label: "Title"}) %>
+    <%- include("../components/input", {type: "text", name: "img", label: "Image URL"}) %>
+    <div class="form-group">
+        <label for="content">Content</label>
+        <textarea name="content" id="content" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Ajouter</button>
 </form>
 <%- include("../partials/footer") %>

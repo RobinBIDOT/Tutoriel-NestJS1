@@ -39,3 +39,15 @@
 .btn-sm {
     font-size: 0.875rem;
 }
+
+.detail-img {
+    max-width: 90%;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+

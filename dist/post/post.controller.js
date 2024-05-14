@@ -24,10 +24,12 @@ let PostController = class PostController {
     async postAddPost(body, session) {
         try {
             const currentUser = session.user;
-            return await this.postService.postAddPost(body, currentUser);
+            await this.postService.postAddPost(body, currentUser);
+            return { message: 'Article ajouté avec succès' };
         }
         catch (error) {
-            console.log(error);
+            console.error(error);
+            return { message: 'Erreur lors de l\'ajout de l\'article' };
         }
     }
     async getDetailPost(id, res) {

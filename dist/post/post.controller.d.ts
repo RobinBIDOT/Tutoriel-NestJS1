@@ -5,7 +5,9 @@ export declare class PostController {
     private readonly postService;
     constructor(postService: PostService);
     getAddPost(): void;
-    postAddPost(body: AddPostDto, session: Record<string, any>): Promise<string>;
+    postAddPost(body: AddPostDto, session: Record<string, any>): Promise<{
+        message: string;
+    }>;
     getDetailPost(id: string, res: Response): Promise<{
         post: import("./post.entity").Post;
     }>;

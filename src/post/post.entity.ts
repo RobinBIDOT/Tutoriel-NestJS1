@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne } from 'typeorm';
-import {User} from "../user/user.entity";
+import { User } from "../user/user.entity";
 
 @Entity()
 export class Post {
@@ -12,15 +12,15 @@ export class Post {
     @Column()
     readonly img: string;
 
-    @Column({type : "text"})
+    @Column({ type: "text" })
     readonly content: string;
 
     @CreateDateColumn()
-    readonly created_at : Date
+    readonly created_at: Date;
 
     @UpdateDateColumn()
-    readonly updated_at : Date
+    readonly updated_at: Date;
 
     @ManyToOne(() => User, (user) => user.posts)
-    user : User
+    user: User;
 }

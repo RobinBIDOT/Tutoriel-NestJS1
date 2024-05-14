@@ -26,4 +26,10 @@ __decorate([
     (0, class_validator_1.Length)(8, 5000),
     __metadata("design:type", String)
 ], AddPostDto.prototype, "content", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsUrl)(),
+    __metadata("design:type", String)
+], AddPostDto.prototype, "img", void 0);
 //# sourceMappingURL=addPostDto.js.map

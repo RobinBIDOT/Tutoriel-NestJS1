@@ -5,6 +5,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     min-height: 99vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .navigation {
@@ -14,13 +16,73 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    color: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
-.navigation.form, .navigation.button {
-    background: none;
-    backdrop-filter: none;
-    border-radius: 0;
-    box-shadow: none;
+.navigation h1 {
+    margin: 0;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.navigation ul li {
+    margin: 0;
+}
+
+.navigation ul li a,
+.navigation ul li button {
+    color: #333;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.navigation ul li a:hover,
+.navigation ul li button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-signup {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-signup:hover {
+    background-color: #0056b3;
+}
+
+.btn-login {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-login:hover {
+    background-color: #218838;
+}
+
+.footer {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(128, 128, 128, 0.5);
+    backdrop-filter: blur(8px);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-top: auto;
 }

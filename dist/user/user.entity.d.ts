@@ -3,6 +3,6 @@ export declare class User {
     readonly id: number;
     readonly username: string;
     readonly email: string;
-    readonly password: string;
+    password: string;
     posts: Post[];
 }

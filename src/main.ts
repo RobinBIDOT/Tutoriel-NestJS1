@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { Logger } from '@nestjs/common';
 import {NestExpressApplication} from "@nestjs/platform-express";
 import { join } from 'path';
 import {ValidationPipe} from "@nestjs/common";
@@ -9,6 +10,7 @@ import { localData } from "./middlewares/localsData"
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  const logger = new Logger('Bootstrap');
   app.useGlobalPipes(new ValidationPipe())
   app.setBaseViewsDir(join(__dirname, "..", "views"))
   app.useStaticAssets(join(__dirname, "..", "public"))
@@ -35,5 +37,6 @@ async function bootstrap() {
 
   app.use(localData)
   await app.listen(3000);
+  logger.log('Application is running on: ' + await app.getUrl());
 }
 bootstrap();
