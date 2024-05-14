@@ -7,4 +7,5 @@ export declare class PostService {
     constructor(postRepository: Repository<Post>);
     postAddPost(body: AddPostDto, user: User): Promise<string>;
     getAllPosts(): Promise<Post[]>;
+    getDetailPost(id: string): Promise<Post>;
 }

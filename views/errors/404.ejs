@@ -1,0 +1,10 @@
+<%- include("../partials/header", {title: "Détail de l'article", style : "home"}) %>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="post text-center">
+        <% if (locals.message) { %>
+            <h1><%= locals.message %></h1>
+        <% } %>
+        <a href="/">Retour à la page d'accueil</a>
+    </div>
+</div>
+<%- include("../partials/footer") %>

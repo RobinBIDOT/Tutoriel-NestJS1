@@ -22,8 +22,22 @@ let PostController = class PostController {
     }
     getAddPost() { }
     async postAddPost(body, session) {
-        const currentUser = session.user;
-        return await this.postService.postAddPost(body, currentUser);
+        try {
+            const currentUser = session.user;
+            return await this.postService.postAddPost(body, currentUser);
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+    async getDetailPost(id, res) {
+        try {
+            const post = await this.postService.getDetailPost(id);
+            return { post };
+        }
+        catch (error) {
+            res.status(404).render("errors/404", { message: error.message });
+        }
     }
 };
 exports.PostController = PostController;
@@ -42,6 +56,15 @@ __decorate([
     __metadata("design:paramtypes", [addPostDto_1.AddPostDto, Object]),
     __metadata("design:returntype", Promise)
 ], PostController.prototype, "postAddPost", null);
+__decorate([
+    (0, common_1.Get)("/detail/:id"),
+    (0, common_1.Render)("post/detail"),
+    __param(0, (0, common_1.Param)("id")),
+    __param(1, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:returntype", Promise)
+], PostController.prototype, "getDetailPost", null);
 exports.PostController = PostController = __decorate([
     (0, common_1.Controller)('post'),
     __metadata("design:paramtypes", [post_service_1.PostService])

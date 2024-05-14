@@ -31,6 +31,12 @@ let PostService = class PostService {
         const posts = await this.postRepository.find({ order: { created_at: "DESC" } });
         return posts;
     }
+    async getDetailPost(id) {
+        const post = await this.postRepository.findOne({ where: { id: +id }, relations: { user: true } });
+        if (!post)
+            throw new common_1.NotFoundException("L'article n'existe pas");
+        return post;
+    }
 };
 exports.PostService = PostService;
 exports.PostService = PostService = __decorate([

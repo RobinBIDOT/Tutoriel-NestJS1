@@ -1,21 +1,30 @@
 <%- include("./partials/header", {title : "Page d'accueil", style: "home"}) %>
 
-<% if (locals.connected) {%>
-    <h1>Bonjour <%= locals.user.username %></h1>
+<div class="container">
+    <% if (locals.connected) { %>
+        <h1 class="my-4">Bonjour <%= locals.user.username %></h1>
     <% } else { %>
-    <h1>Bonjour Inconnu</h1>
-<% } %>
-<main>
-    <% if (locals.posts) { %>
-        <div class="posts">
-            <% posts.forEach(post => { %>
-                <div class="post">
-                    <h3><%= post.title %> </h3>
-                    <p><%= post.content.substring(0, 80).concat("...") %> </p>
-                    <button><a href="/post/detail/<%= post.id %>">Lire la suite</a></button>
-                </div>
-            <% }) %>
-        </div>
+        <h1 class="my-4">Bonjour Inconnu</h1>
     <% } %>
-</main>
+
+    <main>
+        <% if (locals.posts) { %>
+            <div class="row">
+                <% posts.forEach(post => { %>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="post card-body">
+                                <h3 class="card-title"><%= post.title %></h3>
+                                <p class="card-text"><%= post.content.substring(0, 80).concat("...") %></p>
+                                <div class="card-footer">
+                                    <a href="/post/detail/<%= post.id %>" class="btn btn-sm btn-primary">Lire la suite</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </main>
+</div>
 <%- include("./partials/footer") %>
